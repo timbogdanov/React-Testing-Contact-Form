@@ -12,6 +12,11 @@ test('test if lastname placeholder is Burke', () => {
   expect(getByPlaceholderText('Burke'));
 });
 
+test('test if email placeholder is bluebill1049@hotmail.com', () => {
+  const { getByPlaceholderText } = render(<ContactForm />);
+  expect(getByPlaceholderText().toggleAttribute('bluebill1049@hotmail.com'));
+});
+
 test('test if firstname label is firstName', () => {
   const { getByLabelText } = render(<ContactForm />);
   expect(getByLabelText('firstName'));
@@ -27,7 +32,7 @@ test('test if email label is email', () => {
   expect(getByLabelText('email'));
 });
 
-test('test if email placeholder is bluebill1049@hotmail.com', () => {
-  const { getByPlaceholderText } = render(<ContactForm />);
-  expect(getByPlaceholderText().toggleAttribute('bluebill1049@hotmail.com'));
+test('test submit', () => {
+  const { findByTestId } = render(<ContactForm />);
+  expect(findByTestId('submit'));
 });
